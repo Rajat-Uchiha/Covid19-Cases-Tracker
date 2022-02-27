@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Live Covid-19 | Report |</title>
+  </head>
+
+  <body class="bg-stone-900 font-mono" onload="hideLoader()">
+    <!-- Preloader -->
+    <div
+      id="Loading"
+      class="w-screen h-screen flex justify-center bg-stone-900 fixed z-50 items-center"
+    >
+      <div class="flex justify-center items-center">
+        <p class="text-5xl text-white items-center">Please Wait Loading...</p>
+      </div>
+    </div>
+
+    <!-- navBar -->
+    <header>
+      <ul class="flex justify-center items-center bg-stone-700 py-3">
+        <li class="mx-4">
+          <img class="h-12 w-12 invert" src="logo.png" alt="logo" />
+        </li>
+        <li class="mx-4">
+          <a class="text-white text-2xl hover:text-stone-500" href="index.html"
+            >Home</a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <div class="w-screen text-center text-white mb-2" id="mainHeading">
+      <h1 class="text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl py-2">
+        Current Report
+      </h1>
+      <h1 class="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl py-2">
+        Last Update:- <span id="update">-</span>
+      </h1>
+    </div>
+
+    <!-- Card Container -->
+    <div
+      class="w-5/6 flex-col mx-auto lg:flex lg:flex-row border-4 rounded-lg border-white"
+    >
+      <div
+        class="myCards px-2 text-white mx-auto lg:w-1/3 border-2 border-white text-center py-5"
+      >
+        <h3 class="text-2xl text-yellow-500 font-black">
+          TOTAL CONFIRMED CASES
+        </h3>
+        <p id="cnCases" class="text-xl">--</p>
+        <span id="percentageCases" class="text-red-500 text-xl"></span
+        ><span class="text-sm"> OF TOTAL POPULATION</span>
+      </div>
+      <div
+        class="myCards px-2 text-white mx-auto lg:w-1/3 border-2 border-white text-center py-5"
+      >
+        <h3 class="text-2xl text-blue-500 font-blac">WORLD'S POPULATION</h3>
+        <p id="population" class="text-xl">--</p>
+      </div>
+      <div
+        class="myCards px-2 text-white mx-auto lg:w-1/3 border-2 border-white text-center py-5"
+      >
+        <h3 class="text-2xl text-red-500 font-blac">TOTAL DEATHS</h3>
+        <p id="deaths" class="text-xl">--</p>
+      </div>
+    </div>
+
+    <!-- All countries data container as a table -->
+
+    <div
+      class="w-5/6 mx-auto flex flex-col overflow-x-hidden border-4 my-4 rounded-lg border-white"
+    >
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full px-2 py-2 sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table id="myTable" class="min-w-full text-center">
+              <thead class="border-b">
+                <tr>
+                  <th
+                    scope="col"
+                    class="text-md font-bold text-white px-1 py-1"
+                  >
+                    COUNTRY
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-md font-bold text-blue-500 px-1 py-1"
+                  >
+                    TOTAL POPULATION
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-md font-bold text-yellow-500 px-1 py-1"
+                  >
+                    CONFIRMED CASES
+                  </th>
+                  <th
+                    scope="col"
+                    class="text-md font-bold text-red-500 px-1 py-1"
+                  >
+                    TOTAL DEATHS
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="bodyofTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-white bg-stone-700 p-4">
+      <p class="text-white">© 2021 Copyright: coviduptonow.com</p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
